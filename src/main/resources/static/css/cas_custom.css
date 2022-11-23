@@ -1,0 +1,32 @@
+
+:root {
+  --ltBlue: #127BC4;
+}
+
+
+
+body {
+  background-color: white;
+  display: block;
+  height: 100%;
+}
+
+
+#main-content {
+  margin: 0 auto;  
+  padding-bottom: 100px;
+}
+
+div#content {
+  box-shadow: none;
+}
+
+footer {
+  position: fixed;
+  width: 100%;
+  bottom: 0;
+}
+
+.form-help {
+  display: none;
+}

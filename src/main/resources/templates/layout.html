@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+
+    <title layout:title-pattern="$LAYOUT_TITLE $CONTENT_TITLE"
+        th:text="${#strings.defaultString(#themes.code('cas.theme.name'), 'CAS - Central Authentication Service')}">
+    </title>
+
+    <!--/* Core CAS CSS */-->
+    <span th:remove="tag" th:if="${'true' == #strings.defaultString(#themes.code('cas.css.core.enabled'), 'true')}">
+        <span th:replace="fragments/includes :: stylesheets">
+            <a href="fragments/includes.html">Theme</a> stylesheet fragment will go here
+        </span>
+    </span>
+
+    <span th:remove="tag" th:each="file : ${#strings.arraySplit(#themes.code('cas.standard.css.file'), ',')}">
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
+        <link rel="stylesheet" type="text/css" href="../static/css/cas.css" th:href="@{${file}}" />
+
+        <link rel="stylesheet" type="text/css" href="../cas/css/cas_custom.css" />
+    </span>
+    <link rel="shortcut icon"
+        th:href="@{${#strings.defaultString(#themes.code('cas.favicon.file'), '/favicon.ico')}}" />
+</head>
+
+<body>
+    <script th:replace="fragments/scripts"></script>
+
+    <div th:replace="fragments/header :: header">
+        <a href="fragments/header.html">Header</a> fragment will go here
+    </div>
+
+    <div class="mdc-drawer-scrim"></div>
+
+
+        <main role="main" id="main-content" th:attr="class=*{mainContentClass ?: 'container'} ">
+            <div layout:fragment="content" id="content">
+                CAS content will go here
+            </div>
+        </main>
+
+
+    <div th:replace="fragments/footer :: footer">
+        <a href="fragments/footer.html">Footer</a> fragment will go here
+    </div>
+    
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4" crossorigin="anonymous"></script>
+    <script src="../cas/js/cas_custom.js"></script>
+
+</body>
+
+</html>
