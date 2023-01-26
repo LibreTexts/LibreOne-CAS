@@ -1,0 +1,63 @@
+# Basic Properties
+cas.server.name=https://<HOSTNAME>
+cas.server.prefix=${cas.server.name}/cas
+cas.jdbc.show-sql=true
+logging.config=file:/etc/cas/config/log4j2.xml
+
+# Dynamic Service Registry
+cas.service-registry.jpa.enabled=true
+cas.service-registry.jpa.driver-class=com.mysql.cj.jdbc.Driver
+cas.service-registry.jpa.user=<DB_USER>
+cas.service-registry.jpa.password=<DB_PASSWORD>
+cas.service-registry.jpa.url=jdbc:mysql://<DB_URL>
+cas.service-registry.jpa.dialect=org.hibernate.dialect.MySQL8Dialect
+
+# UI Message Bundle
+cas.message-bundle.cache-seconds=0
+cas.message-bundle.use-code-message=false
+cas.message-bundle.base-names=classpath:custom_messages,classpath:messages,file:/src/main/resources/custom_messages
+
+# Mail Sending
+spring.mail.host=<MAIL_HOST>
+spring.mail.port=<MAIL_PORT>
+spring.mail.username=<MAIL_USERNAME>
+spring.mail.password=<MAIL_PASSWORD>
+spring.mail.test-connection=true
+
+# Database Authentication Source
+cas.authn.accept.enabled=false
+cas.authn.jdbc.query[0].driver-class=com.mysql.cj.jdbc.Driver
+cas.authn.jdbc.query[0].url=jdbc:mysql://<DB_URL>
+cas.authn.jdbc.query[0].dialect=org.hibernate.dialect.MySQL8Dialect
+cas.authn.jdbc.query[0].user=<DB_USER>
+cas.authn.jdbc.query[0].password=<DB_PASSWORD>
+cas.authn.jdbc.query[0].sql=SELECT * FROM users WHERE email = ?
+cas.authn.jdbc.query[0].password-encoder.type=BCRYPT
+cas.authn.jdbc.query[0].field-password=password
+cas.authn.jdbc.query[0].field-expired=expired
+cas.authn.jdbc.query[0].field-disabled=disabled
+cas.authn.jdbc.query[0].name=LibreOneIdPHandler
+cas.authn.jdbc.query[0].principal-attribute-list=uuid
+
+# Attribute Repository
+cas.person-directory.principal-attribute=uuid
+cas.authn.attribute-repository.core.expiration-time=0
+cas.authn.attribute-repository.rest[0].url=<REST_ATTRIBUTES_URL>
+cas.authn.attribute-repository.rest[0].basic-auth-username=<REST_ATTRIBUTES_USERNAME>
+cas.authn.attribute-repository.rest[0].basic-auth-password=<REST_ATTRIBUTES_PASSWORD>
+
+# OIDC Configuration
+cas.authn.oidc.core.issuer=${cas.server.prefix}/oidc
+cas.authn.oidc.id-token.include-id-token-claims=false
+cas.authn.oidc.core.user-defined-scopes.libretexts=sub,organization,bio_url,verify_status
+cas.authn.oidc.discovery.scopes=openid,email,profile,libretexts
+cas.authn.oidc.discovery.claims=sub,given_name,family_name,email,picture,organization,bio_url,verify_status
+cas.authn.oidc.core.claims-map.given_name=first_name
+cas.authn.oidc.core.claims-map.family_name=last_name
+cas.authn.oidc.core.claims-map.sub=uuid
+cas.authn.oidc.jwks.jpa.driver-class=com.mysql.cj.jdbc.Driver
+cas.authn.oidc.jwks.jpa.password=<DB_PASSWORD>
+cas.authn.oidc.jwks.jpa.url=jdbc:mysql://<DB_HOST>
+cas.authn.oidc.jwks.jpa.user=<DB_USER>
+cas.authn.oidc.jwks.jpa.dialect=org.hibernate.dialect.MySQL8Dialect
+cas.authn.oidc.core.claims-map.picture=avatar
