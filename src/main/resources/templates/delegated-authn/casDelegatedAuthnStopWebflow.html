@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout" layout:decorate="~{layout}">
+
+<head>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+
+    <title th:text="#{screen.pac4j.unauthz.pagetitle}">Pac4j Stop Webflow View</title>
+    <link href="../../static/css/cas.css" rel="stylesheet" th:remove="tag" />
+</head>
+
+<body>
+    <main role="main" class="container mt-3 mb-3">
+        <div id="content" layout:fragment="content"
+             class="mdc-card card p-4 m-auto w-lg-66 text-justify">
+            <div class="banner alert">
+                <h2 th:utext="#{screen.pac4j.unauthz.heading}">Login Error</h2>
+                <p th:utext="#{screen.pac4j.unauthz.message}">Sorry, we weren't able to authenticate you using your campus or external identity provider. Please register using a username and password.</p>                
+            </div>
+            <br/>
+            <div class="d-flex">
+                <a id="loginLink" class="mdc-button mdc-button--raised btn btn-primary me-2" th:href="@{/login}">
+                    <span class="mdc-button__label" th:text="#{screen.pac4j.unauthz.login}">Back to Login</span>
+                </a>
+            </div>
+        </div>
+    </main>
+</body>
+
+</html>
