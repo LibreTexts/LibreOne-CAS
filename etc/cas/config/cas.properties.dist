@@ -61,3 +61,33 @@ cas.authn.oidc.jwks.jpa.url=jdbc:mysql://<DB_HOST>
 cas.authn.oidc.jwks.jpa.user=<DB_USER>
 cas.authn.oidc.jwks.jpa.dialect=org.hibernate.dialect.MySQL8Dialect
 cas.authn.oidc.core.claims-map.picture=avatar
+
+# Delegated Authentication User Provisioning
+cas.authn.pac4j.provisioning.rest.url=<REST_PROVISION_URL>
+cas.authn.pac4j.provisioning.rest.basic-auth-username=<REST_PROVISION_USERNAME>
+cas.authn.pac4j.provisioning.rest.basic-auth-password=<REST_PROVISION_PASSWORD>
+cas.authn.pac4j.provisioning.rest.method=POST
+
+# Google Workspace Delegated Authentication
+cas.authn.pac4j.oidc[0].google.discovery-uri=<GOOGLE_OIDC_DISCOVERY_URI>
+cas.authn.pac4j.oidc[0].google.id=<GOOGLE_OIDC_ID>
+cas.authn.pac4j.oidc[0].google.secret=<GOOGLE_OIDC_SECRET>
+cas.authn.pac4j.oidc[0].google.client-name=GoogleWorkspace
+cas.authn.pac4j.oidc[0].google.display-name=Google Workspace
+cas.authn.pac4j.oidc[0].google.scope=openid,profile,email
+cas.authn.pac4j.oidc[0].google.principal-attribute-id=sub
+
+# Microsoft Azure Delegated Authentication
+cas.authn.pac4j.oidc[1].azure.tenant=common
+cas.authn.pac4j.oidc[1].azure.id=<AZURE_OIDC_ID>
+cas.authn.pac4j.oidc[1].azure.secret=<AZURE_OIDC_SECRET>
+cas.authn.pac4j.oidc[1].azure.client-name=MicrosoftActiveDirectory
+cas.authn.pac4j.oidc[1].azure.display-name=Microsoft Active Directory
+cas.authn.pac4j.oidc[1].azure.discovery-uri=<AZURE_OIDC_DISCOVERY_URI>
+cas.authn.pac4j.oidc[1].azure.scope=openid,profile,email
+cas.authn.pac4j.oidc[1].azure.principal-attribute-id=sub
+
+# Authentication Interrupt Configuration
+cas.interrupt.rest.url=<REST_INTERRUPT_URL>
+cas.interrupt.rest.basic-auth-username=<REST_INTERRUPT_USERNAME>
+cas.interrupt.rest.basic-auth-password=<REST_INTERRUPT_PASSWORD>

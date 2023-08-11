@@ -49,3 +49,5 @@ config-metadata.properties
 ### Custom ###
 etc/cas/config/variables.yaml
 etc/cas/config/*.keystore
+etc/cas/*keystore
+etc/cas/config/cas.properties
