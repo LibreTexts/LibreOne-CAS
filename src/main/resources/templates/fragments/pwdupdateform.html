@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"/>
+
+    <title>Password Update Form</title>
+    <link href="../../static/css/cas.css" rel="stylesheet" th:remove="tag"/>
+</head>
+
+<body>
+<main role="main" class="container mt-3 mb-3">
+    <div id="pwdmain" th:fragment="pwdupdateform">
+        <h3 th:utext="${expiredPass}
+        ? #{screen.expiredpass.heading(${username})}
+        : #{screen.mustchangepass.heading(${username})}">
+            Change Password Heading</h3>
+
+
+        <p id="pwddesc" th:unless="${passwordManagementEnabled}"
+           th:utext="${expiredPass} ? #{screen.expiredpass.message('https://one.libretexts.org/passwordrecovery')} : #{screen.mustchangepass.message('https://one.libretexts.org/passwordrecovery')}">Expired/Must Change Password text</p>
+        
+    </div>
+</main>
+</body>
+</html>
