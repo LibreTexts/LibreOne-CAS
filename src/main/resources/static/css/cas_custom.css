@@ -1,12 +1,13 @@
 
 :root {
   --ltBlue: #127BC4;
+  background-color: #f4f4f5; /* bg-zinc-100 */
 }
 
 
 
 body {
-  background-color: white;
+  background-color: #f4f4f5; /* bg-zinc-100 */
   display: block;
   height: 100%;
 }
