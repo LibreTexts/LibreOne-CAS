@@ -19,7 +19,7 @@
             </script>
             <div th:if="${delegatedAuthenticationProviderConfigurations}">
 
-                <h3 class="text-left mt-2 text-gray-500">
+                <h3 class="text-left my-1 text-gray-500">
                     <i class="fas fa-user-shield"></i>
                     <span th:if="${delegatedAuthenticationProviderPrimary == null}"
                           th:utext="#{screen.welcome.label.loginwith}">External Identity Providers</span>
@@ -47,7 +47,7 @@
                     </div>
                 </div>
 
-                <div class="d-flex justify-content-center"
+                <div class="d-flex justify-content-center "
                      th:style="'visibility:' + ${delegatedAuthenticationProviderPrimary != null ? 'hidden' : 'visible'}">
                     <ul class="list-unstyled d-flex flex-column m-0 flex-fill">
                         <li class="p-1 login-provider-item"
@@ -55,7 +55,8 @@
                             th:switch="${entry.type}">
 
                             <form method="post" th:id="${'form' + entry.name}" th:action="@{/login}">
-                                <button class="mdc-button mdc-button--raised me-2 btn btn-primary d-block w-100"
+                                <!--These are the customized buttons for external providers-->
+                                <button class="w-full border rounded-md h-12 shadow-sm flex items-center p-2 hover:bg-slate-100 hover:shadow-md"
                                         name="submitButton"
                                         id="submitButton"
                                         type="submit"
@@ -64,7 +65,8 @@
                                         th:id="${entry.name}"
                                         th:classappend="'mdc-button-' + ${entry.type} + ${entry.cssClass}"
                                         accesskey="s">
-                                    <span class="mdc-button__label">[[${#strings.defaultString(entry.title,entry.name)}]]</span>
+                                        <!--Need to add provider icon-->
+                                    <span class="font-medium text-slate-700 ml-2">[[${#strings.defaultString(entry.title,entry.name)}]]</span>
                                 </button>
 
                                 <input type="hidden" name="client_name" th:value="${entry.name}" />
@@ -97,8 +99,8 @@
                             </script>
                             -->
                         </li>
+                        <!--
                         <li th:if="${identityProviderDiscoveryEnabled}">
-                            <!--
                             <script type="text/javascript" th:inline="javascript">
                                 /*<![CDATA[*/
                                 let url = /*[[@{/idp/discovery}]]*/ ;
@@ -116,8 +118,8 @@
                                 /*]]>*/
                                 
                             </script>
-                            -->
                         </li>
+                        -->
                     </ul>
                 </div>
             </div>
