@@ -76,6 +76,7 @@ cas.authn.pac4j.oidc[0].google.client-name=GoogleWorkspace
 cas.authn.pac4j.oidc[0].google.display-name=Google Workspace
 cas.authn.pac4j.oidc[0].google.scope=openid,profile,email
 cas.authn.pac4j.oidc[0].google.principal-attribute-id=sub
+cas.custom.properties.GoogleWorkspaceIcon=<GOOGLE_ICON_URL>
 
 # Microsoft Azure Delegated Authentication
 cas.authn.pac4j.oidc[1].azure.tenant=common
@@ -86,6 +87,7 @@ cas.authn.pac4j.oidc[1].azure.display-name=Microsoft Active Directory
 cas.authn.pac4j.oidc[1].azure.discovery-uri=<AZURE_OIDC_DISCOVERY_URI>
 cas.authn.pac4j.oidc[1].azure.scope=openid,profile,email
 cas.authn.pac4j.oidc[1].azure.principal-attribute-id=sub
+cas.custom.properties.MicrosoftActiveDirectoryIcon=<MICROSOFT_ICON_URL>
 
 # Authentication Interrupt Configuration
 cas.interrupt.rest.url=<REST_INTERRUPT_URL>
