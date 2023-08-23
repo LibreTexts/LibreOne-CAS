@@ -29,7 +29,7 @@
     <script src="https://cdn.tailwindcss.com"></script>
 </head>
 
-<body class="bg-zinc-100 py-10">
+<body>
     <script th:replace="fragments/scripts"></script>
 
     <div th:replace="fragments/header :: header">
@@ -39,21 +39,23 @@
     <!--Blocks interaction with underlying UI when a modal is open-->
     <div class="mdc-drawer-scrim"></div>
 
-    <!--Directly inject header instead of fragment for more layout control-->
-    <div class="flex justify-center bg-zinc-100 py-4">
-        <img id="libretexts-logo" class="w-80 h-auto" src="../cas/images/full_logo.png" alt="LibreTexts Logo">
-    </div>
-
-    <main role="main" id="main-content" th:attr="class=*{mainContentClass ?: 'bg-zinc-100 w-11/12 md:w-3/4'}">
-        <div layout:fragment="content" id="content">
-            CAS content will go here
+    <div class="flex flex-column justify-items-center justify-content-center items-center min-h-screen py-10">
+        <!--Directly inject header instead of fragment for more layout control-->
+        <div class="flex justify-center bg-zinc-100 mb-6">
+            <img id="libretexts-logo" class="w-80 h-auto" src="../cas/images/full_logo.png" alt="LibreTexts Logo">
         </div>
-    </main>
 
-    <!--Directly inject footer instead of fragment for more layout control-->
-    <footer class="py-3 d-flex justify-content-center align-items-center bg-zinc-100 text-zinc-700 mt-3">
-        <span class="d-inline-block">LibreOne Authentication Service - powered by Apereo CAS (Copyright &copy; 2005-2022 Apereo, Inc.)</span>
-    </footer>
+        <main role="main" id="main-content" th:attr="class=*{mainContentClass ?: 'bg-zinc-100 w-11/12 md:w-3/4'}">
+            <div layout:fragment="content" id="content">
+                CAS content will go here
+            </div>
+        </main>
+
+        <!--Directly inject footer instead of fragment for more layout control-->
+        <footer class="py-3 d-flex justify-content-center align-items-center bg-zinc-100 text-zinc-700 mt-3">
+            <span class="d-flex text-center text-sm lg:text-base">LibreOne Authentication Service - powered by Apereo CAS (Copyright &copy; 2005-2022 Apereo, Inc.)</span>
+        </footer>
+    </div>
 
 
     <!-- Brought the footer in directly instead of fragment so we can control layout better

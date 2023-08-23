@@ -24,16 +24,17 @@
 
     <section id="form-panels" class="mt-6" th:with="loginFormEnabled=${#strings.defaultString(#themes.code('cas.login-form.enabled'), 'true') == 'true'},
     loginFormViewable=${@casThymeleafLoginFormDirector.isLoginFormViewable(#vars)}">
-      <div class="d-flex flex-row gx-5">
-
-        <div class="col login-section login-form basis-3/4" id="loginForm"
+      <div class="d-flex flex-column lg:!flex-row">
+        <div class="d-flex flex-column p-6 login-form basis-2/3" id="loginForm"
           th:if="${loginFormViewable and loginFormEnabled}">
           <div th:replace="fragments/loginform :: loginform">
             <a href="fragments/loginform.html">Login Form goes here</a>
           </div>
         </div>
 
-        <div class="col-4 login-section login-providers basis-1/4" id="loginProviders"
+        <div class="flex-grow border-b lg:border-l border-slate-200 mx-10 lg:mx-0"></div>
+
+        <div class="login-providers px-4 py-2 basis-1/3 text-gray-500" id="loginProviders"
           th:if="${#bools.isFalse(delegatedAuthenticationDynamicProviderSelection) && #bools.isFalse(delegatedAuthenticationDisabled)}">
           <div th:replace="fragments/loginProviders :: loginProviders">
             <a href="fragments/loginProviders.html">loginProviders</a>
@@ -41,19 +42,19 @@
         </div>
 
       </div>
-      <div class="mt-4 text-center text-sm flex justify-center items-center">
+      <div class="flex flex-column lg:!flex-row mt-4 text-center text-sm justify-center items-center">
         <span th:text="#{screen.welcome.actions.noaccount}">
           Don't have an account yet?
         </span>
-        <a class="text-indigo-500 font-medium pl-1" href="https://one.libretexts.org/register"
+        <a class="text-indigo-500 font-medium pl-1 visited:text-indigo-500" href="https://one.libretexts.org/register"
           th:text="#{screen.welcome.actions.register}">
           Register with LibreOne
         </a>
-        <span class="ml-2 mr-2 text-gray-500">&middot;</span>
-        <span th:text="#{screen.welcome.actions.forgotpass}">
+        <span class="mt-2 lg:!mt-0 ml-2 mr-2 text-gray-500">&middot;</span>
+        <span th:text="#{screen.welcome.actions.forgotpass}" class="mt-2 lg:!mt-0">
           Forgot your password?
         </span>
-        <a class="text-indigo-500 font-medium pl-1" href="https://one.libretexts.org/passwordrecovery"
+        <a class="text-indigo-500 font-medium pl-1 visited:text-indigo-500" href="https://one.libretexts.org/passwordrecovery"
           th:text="#{screen.welcome.actions.resetpass}">
           Reset your password
         </a>

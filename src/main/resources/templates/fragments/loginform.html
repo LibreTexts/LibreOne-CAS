@@ -13,7 +13,7 @@
 <body>
     <main role="main" class="container mt-3 mb-3">
 
-        <div th:fragment="loginform" class="d-flex flex-column justify-content-between m-auto" th:with="loginFormEnabled=${#strings.defaultString(#themes.code('cas.login-form.enabled'), 'true') == 'true'},
+        <div th:fragment="loginform" class="d-flex flex-column justify-content-start" th:with="loginFormEnabled=${#strings.defaultString(#themes.code('cas.login-form.enabled'), 'true') == 'true'},
                 loginFormViewable=${@casThymeleafLoginFormDirector.isLoginFormViewable(#vars)}">
 
             <div th:if="${delegatedAuthenticationProviderPrimary == null}">
@@ -66,7 +66,7 @@
                             </div>
                         </section>
                         <section id="passwordSection">
-                            <div class="flex flex-col my-4">
+                            <div class="flex flex-col mt-4 mb-1">
                                 <label for="password" class="block text-sm font-medium">
                                     <span th:utext="#{screen.welcome.label.password}">Password</span>
                                 </label>
@@ -119,7 +119,7 @@
                             </p>
                         </section>
 
-                        <div class="my-3 d-grid gap-2" id="form-actions">
+                        <div class="d-flex" id="form-actions">
                             <div
                                 th:replace="fragments/submitbutton :: submitButton (messageKey='screen.welcome.button.login')" />
                         </div>
