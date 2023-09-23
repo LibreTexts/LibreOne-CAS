@@ -23,7 +23,7 @@
                             th:src="@{${#themes.code('cas.hero-banner.file')}}" />
                     </p>
                 </div>
-                <div class="service-ui !h-14" th:replace="fragments/serviceui :: serviceUI">
+                <div class="service-ui !h-14 mb-1" th:replace="fragments/serviceui :: serviceUI">
                     <a href="fragments/serviceui.html">service ui fragment</a>
                 </div>
             </div>
@@ -53,8 +53,11 @@
                             <p th:each="err : ${#fields.errors('*')}" th:utext="${err + ' '}">Example error</p>
                             <!--<a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>-->
                         </div>
+                        <div class="flex flex-row">
+                            <p class="text-base font-medium" th:text="#{screen.welcome.label.local}">Local Login</p>
+                        </div>
                         <section id="emailSection">
-                            <div class="flex flex-col my-4">
+                            <div class="flex flex-col mt-2 mb-4">
                                 <label for="emailInput" th:utext="#{screen.welcome.label.email}"
                                     class="block text-sm font-medium">Email Address</label>
                                 <input id="emailInput" type="email" th:field="*{username}" autocapitalize="none"
