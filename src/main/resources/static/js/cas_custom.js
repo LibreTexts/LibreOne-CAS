@@ -15,3 +15,6 @@ $('#togglePassword').click(() => {
         toggleIcon.addClass('mdi-eye').removeClass('mdi-eye-off');
     }
 });
+$('#fm1').on('submit', () => {
+    $('.submit-loading-indicator').first().removeClass('hidden');
+});
