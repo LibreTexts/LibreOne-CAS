@@ -18,7 +18,12 @@
                 style="background-color: #127BC4;"
                 class="inline-flex items-center justify-center h-10 p-2 mt-2 rounded-md text-white w-full font-medium hover:bg-sky-700 hover:shadow"
                 th:if="${recaptchaSiteKey == null}" name="submitBtn" accesskey="l" type="submit">
-                <span class="mdc-button__label" th:text="#{${messageKey}}">Login</span>
+                <div class="submit-loading-indicator hidden">
+                    <div th:replace="fragments/loadingIndicator :: loadingIndicator">
+                        <a href="fragments/loadingIndicator.html">Loading indicator</a> fragment will go here
+                    </div>
+                </div>
+                <span class="mdc-button__label ml-2" th:text="#{${messageKey}}">Login</span>
             </button>
 
             <span th:unless="${recaptchaSiteKey == null}">
