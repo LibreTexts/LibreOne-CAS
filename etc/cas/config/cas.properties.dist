@@ -96,3 +96,6 @@ cas.interrupt.rest.basic-auth-password=<REST_INTERRUPT_PASSWORD>
 
 # Default Service Redirect
 cas.view.default-redirect-url=<DEFAULT_SERVICE_URL>
+
+# Session Lifetime
+cas.tgc.max-age=<MAX_AGE_IN_SECONDS>
