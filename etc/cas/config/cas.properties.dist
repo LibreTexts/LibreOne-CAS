@@ -93,3 +93,6 @@ cas.custom.properties.MicrosoftActiveDirectoryIcon=<MICROSOFT_ICON_URL>
 cas.interrupt.rest.url=<REST_INTERRUPT_URL>
 cas.interrupt.rest.basic-auth-username=<REST_INTERRUPT_USERNAME>
 cas.interrupt.rest.basic-auth-password=<REST_INTERRUPT_PASSWORD>
+
+# Default Service Redirect
+cas.view.default-redirect-url=<DEFAULT_SERVICE_URL>
