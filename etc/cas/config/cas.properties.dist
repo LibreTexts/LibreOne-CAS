@@ -99,3 +99,5 @@ cas.view.default-redirect-url=<DEFAULT_SERVICE_URL>
 
 # Session Lifetime
 cas.tgc.max-age=<MAX_AGE_IN_SECONDS>
+cas.ticket.tgt.primary.max-time-to-live-in-seconds=P<NUM_DAYS>D
+cas.ticket.tgt.primary.time-to-kill-in-seconds=P<NUM_DAYS>D
