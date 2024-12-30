@@ -46,7 +46,15 @@
         <span th:text="#{screen.welcome.actions.noaccount}">
           Don't have an account yet?
         </span>
-        <a class="text-indigo-500 font-medium pl-1 visited:text-indigo-500" href="https://one.libretexts.org/register"
+        <a class="text-indigo-500 font-medium pl-1 visited:text-indigo-500"
+          th:if="${param.service != null}"
+          th:href="@{https://one.libretexts.org/register(service=${param.service})}"
+          th:text="#{screen.welcome.actions.register}">
+          Register with LibreOne
+        </a>
+        <a class="text-indigo-500 font-medium pl-1 visited:text-indigo-500"
+          th:if="${param.service == null}"
+          href="https://one.libretexts.org/register"
           th:text="#{screen.welcome.actions.register}">
           Register with LibreOne
         </a>
