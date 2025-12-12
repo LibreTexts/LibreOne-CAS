@@ -1,7 +1,7 @@
 // announcements.js
 (function() {
   document.addEventListener('DOMContentLoaded', function() {
-    fetch('https://staging.one.libretexts.org/api/v1/announcements/global')
+    fetch('https://one.libretexts.org/api/v1/announcements/global')
       .then(function(response) {
         if (!response.ok) {
           throw new Error('Network response was not ok');
