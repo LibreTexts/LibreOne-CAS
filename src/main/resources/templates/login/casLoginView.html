@@ -7,6 +7,7 @@
 
   <title th:text="#{cas.login.pagetitle}">LibreOne Login</title>
   <link href="../../static/css/cas.css" rel="stylesheet" th:remove="tag" />
+  <script src="/cas/js/announcements.js"></script>
 </head>
 
 <body class="login mdc-typography">
@@ -47,24 +48,17 @@
           Don't have an account yet?
         </span>
         <a class="text-indigo-500 font-medium pl-1 visited:text-indigo-500"
-          th:if="${param.service != null}"
-          th:href="@{https://one.libretexts.org/register(service=${param.service})}"
-          th:text="#{screen.welcome.actions.register}">
-          Register with LibreOne
-        </a>
+        th:if="${param.service != null}"
+        th:href="'javascript:void(0);'"
+        th:onclick="this.href='https://staging.one.libretexts.org/register?service=' + encodeURIComponent([[${param.service}]])"
+        th:text="#{screen.welcome.actions.register}">
+        Register with LibreOne
+      </a>
         <a class="text-indigo-500 font-medium pl-1 visited:text-indigo-500"
           th:if="${param.service == null}"
-          href="https://one.libretexts.org/register"
+          href="https://staging.one.libretexts.org/register"
           th:text="#{screen.welcome.actions.register}">
           Register with LibreOne
-        </a>
-        <span class="mt-2 lg:!mt-0 ml-2 mr-2 text-gray-500">&middot;</span>
-        <span th:text="#{screen.welcome.actions.forgotpass}" class="mt-2 lg:!mt-0">
-          Forgot your password?
-        </span>
-        <a class="text-indigo-500 font-medium pl-1 visited:text-indigo-500" href="https://one.libretexts.org/passwordrecovery"
-          th:text="#{screen.welcome.actions.resetpass}">
-          Reset your password
         </a>
       </div>
   </section>
